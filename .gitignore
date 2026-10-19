@@ -1,8 +1,91 @@
-data/
-runs/
+# ==============================================================================
+# Python
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ==============================================================================
+# Virtual environments
+# ==============================================================================
 .venv/
-*.avi
-*.mp4
-*.pt
-*.jpg
-*.png
+venv/
+env/
+ENV/
+
+# ==============================================================================
+# Streamlit
+# ==============================================================================
+.streamlit/secrets.toml
+
+# ==============================================================================
+# Application-generated outputs (not for repo)
+# ==============================================================================
+violations/
+data/
+
+# ==============================================================================
+# Temporary / debug scripts (generated during development, not part of app)
+# ==============================================================================
+inspect_contrast.py
+test_btn.py
+test_header_theme.py
+test_render_opt.py
+test_toggle_minimal.py
+
+# ==============================================================================
+# Debug / audit screenshots (generated during development)
+# ==============================================================================
+full_batch_processing_screenshot.png
+full_live_camera_screenshot.png
+full_safety_analytics_screenshot.png
+full_single_image_screenshot.png
+full_video_analysis_screenshot.png
+panel_batch_processing.png
+panel_live_camera.png
+panel_safety_analytics.png
+panel_single_image.png
+panel_video_analysis.png
+tab_batch_processing_screenshot.png
+tab_live_camera_screenshot.png
+tab_safety_analytics_screenshot.png
+tab_single_image_screenshot.png
+tab_video_analysis_screenshot.png
+theme_dark_debug.png
+theme_dark_verified.png
+theme_light_debug.png
+theme_light_verified.png
+ui_analytics_screenshot.png
+ui_redesign_screenshot.png
+
+# ==============================================================================
+# OS / Editor
+# ==============================================================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+*.iml
+
+# ==============================================================================
+# Environment / secrets
+# ==============================================================================
+.env
+*.env
+secrets.toml
+
+# ==============================================================================
+# NOTE: best.pt, sample_media/, and tests/ are intentionally tracked.
+# The model weights file (5.9 MB) is below GitHub's 50 MB warning threshold.
+# ==============================================================================
+
+# Local editor settings and training artifacts
+.vscode/
+runs/

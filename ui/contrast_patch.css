@@ -1,0 +1,53 @@
+/* ==============================================================================
+   TARGETED DARK MODE ACCESSIBILITY & COMPONENT CONTRAST FIXES
+   ============================================================================== */
+
+/* Native Streamlit widget labels (sliders, selectboxes, number inputs, text inputs) */
+label,
+.stSlider label,
+.stSelectbox label,
+.stTextInput label,
+.stNumberInput label,
+[data-baseweb="slider"] label,
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] span {
+    color: var(--text-primary) !important;
+}
+
+/* Secondary helper texts / captions / slider min-max labels */
+[data-testid="stSlider"] div[data-baseweb="slider"] span,
+[data-testid="stSlider"] small,
+.stSlider small,
+.stSelectbox small,
+[data-testid="stWidgetLabel"] small {
+    color: var(--text-secondary) !important;
+}
+
+/* Secondary Action / Neutral Buttons in Dark Mode */
+.stButton button,
+.stDownloadButton button {
+    background-color: var(--surface-elevated) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.stButton button:hover,
+.stDownloadButton button:hover {
+    background-color: var(--surface-hover) !important;
+    border-color: var(--primary-teal) !important;
+    color: var(--primary-teal) !important;
+}
+
+/* Delete Files Destructive Action Styling — targets by Streamlit key attribute */
+button[data-testid="stBaseButton-secondary"][key="delete_files_btn"],
+div[data-testid="stButton"]:has(button[key="delete_files_btn"]) button {
+    border-color: rgba(255, 112, 104, 0.4) !important;
+    color: var(--violation-red) !important;
+}
+
+button[data-testid="stBaseButton-secondary"][key="delete_files_btn"]:hover,
+div[data-testid="stButton"]:has(button[key="delete_files_btn"]) button:hover {
+    background-color: var(--violation-bg) !important;
+    border-color: var(--violation-red) !important;
+    color: var(--violation-red) !important;
+}
