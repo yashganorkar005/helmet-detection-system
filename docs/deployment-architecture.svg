@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#F2F6FA"/>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SWIM LANE 1: Developer / Source (top, light-blue bg)   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <rect x="0" y="0" width="900" height="190" fill="#DDE8F5" rx="0"/>
+  <rect x="0" y="0" width="18" height="190" fill="#1769AA"/>
+  <text x="9" y="100" fill="white" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90,9,100)">Developer / Source</text>
+
+  <!-- Developer Workstation -->
+  <rect x="35" y="20" width="130" height="60" fill="white" stroke="#1769AA" stroke-width="1.5" rx="6"/>
+  <text x="100" y="45" fill="#0D2137" font-size="10" font-weight="bold" text-anchor="middle">Developer</text>
+  <text x="100" y="59" fill="#0D2137" font-size="10" text-anchor="middle">Workstation</text>
+  <text x="100" y="73" fill="#6B7C99" font-size="8.5" text-anchor="middle">Local dev environment</text>
+
+  <!-- Arrow: Developer → GitHub -->
+  <line x1="165" y1="50" x2="235" y2="50" stroke="#1769AA" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <text x="200" y="44" fill="#1769AA" font-size="8" text-anchor="middle">Git push</text>
+
+  <!-- GitHub Repository -->
+  <rect x="235" y="20" width="180" height="150" fill="white" stroke="#1769AA" stroke-width="1.5" rx="6"/>
+  <text x="325" y="42" fill="#0D2137" font-size="10" font-weight="bold" text-anchor="middle">GitHub Repository</text>
+  <line x1="248" y1="50" x2="402" y2="50" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="248" y="66" fill="#6B7C99" font-size="8.5">app.py</text>
+  <text x="248" y="79" fill="#6B7C99" font-size="8.5">models/best.pt  (5.94 MB YOLOv8)</text>
+  <text x="248" y="92" fill="#6B7C99" font-size="8.5">requirements.txt  /  packages.txt</text>
+  <text x="248" y="105" fill="#6B7C99" font-size="8.5">.streamlit/config.toml</text>
+  <text x="248" y="118" fill="#6B7C99" font-size="8.5">ui/  (theme, layout, pages, …)</text>
+  <text x="248" y="131" fill="#6B7C99" font-size="8.5">tests/  (24 tests)</text>
+  <text x="248" y="144" fill="#6B7C99" font-size="8.5">sample_media/</text>
+  <text x="248" y="157" fill="#6B7C99" font-size="8.5">bytetrack.yaml</text>
+
+  <!-- Dashed arrow: GitHub → Build (Deploy trigger) -->
+  <line x1="415" y1="95" x2="485" y2="95" stroke="#087E8B" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowTeal)"/>
+  <text x="450" y="87" fill="#087E8B" font-size="8" text-anchor="middle">Deploy</text>
+  <text x="450" y="98" fill="#087E8B" font-size="8" text-anchor="middle">trigger</text>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SWIM LANE 2: Deployment / Runtime (middle, navy bg)    -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <rect x="0" y="190" width="900" height="210" fill="#0D2137" rx="0"/>
+  <rect x="0" y="190" width="18" height="210" fill="#087E8B"/>
+  <text x="9" y="295" fill="white" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90,9,295)">Deployment / Runtime</text>
+
+  <!-- Build Step -->
+  <rect x="35" y="206" width="140" height="80" fill="#132B45" stroke="#087E8B" stroke-width="1.5" rx="6"/>
+  <text x="105" y="228" fill="white" font-size="10" font-weight="bold" text-anchor="middle">Community Cloud</text>
+  <text x="105" y="242" fill="white" font-size="10" font-weight="bold" text-anchor="middle">Build</text>
+  <line x1="47" y1="250" x2="163" y2="250" stroke="#1E4060" stroke-width="1"/>
+  <text x="105" y="263" fill="#8DB4CC" font-size="8" text-anchor="middle">pip install requirements.txt</text>
+  <text x="105" y="275" fill="#8DB4CC" font-size="8" text-anchor="middle">apt-get packages.txt</text>
+
+  <!-- Arrow: Build → App -->
+  <line x1="175" y1="246" x2="250" y2="246" stroke="#087E8B" stroke-width="1.5" marker-end="url(#arrowTeal)"/>
+  <text x="212" y="240" fill="#8DB4CC" font-size="8" text-anchor="middle">Start</text>
+
+  <!-- Running App box (large) -->
+  <rect x="250" y="200" width="560" height="190" fill="#132B45" stroke="#087E8B" stroke-width="1.5" rx="6"/>
+  <text x="530" y="220" fill="white" font-size="10" font-weight="bold" text-anchor="middle">Running Streamlit App  (app.py)</text>
+  <line x1="262" y1="227" x2="798" y2="227" stroke="#1E4060" stroke-width="1"/>
+
+  <!-- Sub-box: UI Layer -->
+  <rect x="262" y="235" width="160" height="140" fill="#0D2137" stroke="#1769AA" stroke-width="1" rx="4"/>
+  <text x="342" y="254" fill="#60ABDC" font-size="9" font-weight="bold" text-anchor="middle">UI Layer</text>
+  <text x="342" y="268" fill="#8DB4CC" font-size="8" text-anchor="middle">ui/theme.py (tokens + CSS)</text>
+  <text x="342" y="281" fill="#8DB4CC" font-size="8" text-anchor="middle">ui/layout.py</text>
+  <text x="342" y="294" fill="#8DB4CC" font-size="8" text-anchor="middle">ui/components.py</text>
+  <text x="342" y="307" fill="#8DB4CC" font-size="8" text-anchor="middle">ui/icons.py</text>
+  <text x="342" y="320" fill="#8DB4CC" font-size="8" text-anchor="middle">styles.css / contrast_patch.css</text>
+  <text x="342" y="333" fill="#8DB4CC" font-size="8" text-anchor="middle">pages: image / batch / video</text>
+  <text x="342" y="346" fill="#8DB4CC" font-size="8" text-anchor="middle">live_camera / analytics</text>
+  <text x="342" y="359" fill="#8DB4CC" font-size="8" text-anchor="middle">5 Streamlit tabs</text>
+
+  <!-- Sub-box: Inference Layer -->
+  <rect x="434" y="235" width="175" height="140" fill="#0D2137" stroke="#087E8B" stroke-width="1" rx="4"/>
+  <text x="521" y="254" fill="#60ABDC" font-size="9" font-weight="bold" text-anchor="middle">Inference Layer</text>
+  <text x="521" y="268" fill="#8DB4CC" font-size="8" text-anchor="middle">YOLOv8 (best.pt, 4 classes)</text>
+  <text x="521" y="281" fill="#8DB4CC" font-size="8" text-anchor="middle">model.predict / model.track</text>
+  <text x="521" y="294" fill="#8DB4CC" font-size="8" text-anchor="middle">ByteTrack (bytetrack.yaml)</text>
+  <text x="521" y="307" fill="#8DB4CC" font-size="8" text-anchor="middle">lap 0.5.13 (Hungarian assign)</text>
+  <text x="521" y="320" fill="#8DB4CC" font-size="8" text-anchor="middle">annotations.py</text>
+  <text x="521" y="333" fill="#8DB4CC" font-size="8" text-anchor="middle">plot_with_priority_labels()</text>
+  <text x="521" y="346" fill="#8DB4CC" font-size="8" text-anchor="middle">ROI overlay</text>
+  <text x="521" y="359" fill="#8DB4CC" font-size="8" text-anchor="middle">CPU inference (torch 2.14.1)</text>
+
+  <!-- Sub-box: Session State -->
+  <rect x="621" y="235" width="175" height="140" fill="#0D2137" stroke="#D94841" stroke-width="1" rx="4"/>
+  <text x="708" y="254" fill="#60ABDC" font-size="9" font-weight="bold" text-anchor="middle">Session State</text>
+  <text x="708" y="268" fill="#8DB4CC" font-size="8" text-anchor="middle">uuid4().hex per session</text>
+  <text x="708" y="281" fill="#8DB4CC" font-size="8" text-anchor="middle">violations/&lt;session_id&gt;/</text>
+  <text x="708" y="294" fill="#8DB4CC" font-size="8" text-anchor="middle">queue.Queue() per session</text>
+  <text x="708" y="307" fill="#8DB4CC" font-size="8" text-anchor="middle">_video_temp_path tracked</text>
+  <text x="708" y="320" fill="#8DB4CC" font-size="8" text-anchor="middle">@st.cache_resource model</text>
+  <text x="708" y="333" fill="#8DB4CC" font-size="8" text-anchor="middle">@st.fragment (2s refresh)</text>
+  <text x="708" y="346" fill="#8DB4CC" font-size="8" text-anchor="middle">NamedTemporaryFile cleanup</text>
+  <text x="708" y="359" fill="#8DB4CC" font-size="8" text-anchor="middle">in finally block</text>
+
+  <!-- Arrow: GitHub → Build (vertical portion) - dashed line from lane 1 to lane 2 -->
+  <!-- Already handled by horizontal arrow above -->
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SWIM LANE 3: User / Browser (bottom, light-grey bg)    -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <rect x="0" y="400" width="900" height="155" fill="#EEF2F7" rx="0"/>
+  <rect x="0" y="400" width="18" height="155" fill="#457B9D"/>
+  <text x="9" y="477" fill="white" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90,9,477)">User / Browser</text>
+
+  <!-- Browser -->
+  <rect x="35" y="418" width="110" height="60" fill="white" stroke="#457B9D" stroke-width="1.5" rx="6"/>
+  <text x="90" y="443" fill="#0D2137" font-size="10" font-weight="bold" text-anchor="middle">Browser</text>
+  <text x="90" y="457" fill="#6B7C99" font-size="8.5" text-anchor="middle">HTTPS / WebSocket</text>
+  <text x="90" y="470" fill="#6B7C99" font-size="8.5" text-anchor="middle">Streamlit frontend</text>
+
+  <!-- Arrow: Browser → App (HTTPS request, going up) -->
+  <line x1="145" y1="448" x2="215" y2="380" stroke="#1769AA" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <text x="155" y="415" fill="#1769AA" font-size="8">HTTPS</text>
+  <text x="155" y="426" fill="#1769AA" font-size="8">request</text>
+
+  <!-- Arrow: App → Browser (annotated results, going down) -->
+  <line x1="220" y1="390" x2="150" y2="458" stroke="#218C70" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <text x="205" y="442" fill="#218C70" font-size="8">results +</text>
+  <text x="205" y="453" fill="#218C70" font-size="8">downloads</text>
+
+  <!-- 5 Tabs box -->
+  <rect x="280" y="412" width="335" height="128" fill="white" stroke="#457B9D" stroke-width="1.5" rx="6"/>
+  <text x="447" y="432" fill="#0D2137" font-size="10" font-weight="bold" text-anchor="middle">5 Application Tabs</text>
+  <line x1="292" y1="438" x2="603" y2="438" stroke="#CBD5E1" stroke-width="1"/>
+
+  <!-- Tab labels -->
+  <rect x="292" y="446" width="58" height="22" fill="#DDE8F5" stroke="#1769AA" stroke-width="1" rx="3"/>
+  <text x="321" y="461" fill="#0D2137" font-size="8" text-anchor="middle">Single</text>
+  <text x="321" y="471" fill="#0D2137" font-size="7" text-anchor="middle">Image</text>
+
+  <rect x="356" y="446" width="58" height="22" fill="#DDE8F5" stroke="#1769AA" stroke-width="1" rx="3"/>
+  <text x="385" y="461" fill="#0D2137" font-size="8" text-anchor="middle">Batch</text>
+  <text x="385" y="471" fill="#0D2137" font-size="7" text-anchor="middle">Processing</text>
+
+  <rect x="420" y="446" width="55" height="22" fill="#DDE8F5" stroke="#1769AA" stroke-width="1" rx="3"/>
+  <text x="447" y="461" fill="#0D2137" font-size="8" text-anchor="middle">Video</text>
+  <text x="447" y="471" fill="#0D2137" font-size="7" text-anchor="middle">Analysis</text>
+
+  <rect x="481" y="446" width="58" height="22" fill="#D4EDDA" stroke="#218C70" stroke-width="1" rx="3"/>
+  <text x="510" y="461" fill="#0D2137" font-size="8" text-anchor="middle">Live</text>
+  <text x="510" y="471" fill="#0D2137" font-size="7" text-anchor="middle">Camera</text>
+
+  <rect x="545" y="446" width="50" height="22" fill="#DDE8F5" stroke="#1769AA" stroke-width="1" rx="3"/>
+  <text x="570" y="461" fill="#0D2137" font-size="8" text-anchor="middle">Analytics</text>
+
+  <!-- Outputs description -->
+  <text x="292" y="489" fill="#6B7C99" font-size="8">Annotated JPEG + CSV + JSON</text>
+  <text x="292" y="502" fill="#6B7C99" font-size="8">In-memory ZIP (batch)   |   Timeline CSV/JSON (video)</text>
+  <text x="292" y="515" fill="#6B7C99" font-size="8">Violation snapshots (JPG, throttled 1/s)</text>
+  <text x="292" y="528" fill="#6B7C99" font-size="8">Altair charts (class distribution, confidence histogram)</text>
+
+  <!-- WebRTC / STUN box -->
+  <rect x="648" y="412" width="215" height="128" fill="white" stroke="#D94841" stroke-width="1.5" rx="6" stroke-dasharray="5,3"/>
+  <text x="755" y="432" fill="#0D2137" font-size="10" font-weight="bold" text-anchor="middle">WebRTC Path (Live Camera)</text>
+  <line x1="660" y1="438" x2="851" y2="438" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="660" y="453" fill="#6B7C99" font-size="8">Camera capture (getUserMedia)</text>
+  <text x="660" y="466" fill="#6B7C99" font-size="8">WebRTC peer connection</text>
+  <text x="660" y="479" fill="#6B7C99" font-size="8">STUN: stun.l.google.com:19302</text>
+  <text x="660" y="492" fill="#6B7C99" font-size="8">streamlit-webrtc 0.78.1</text>
+  <text x="660" y="505" fill="#6B7C99" font-size="8">VideoProcessor.recv()</text>
+  <text x="660" y="518" fill="#6B7C99" font-size="8">av.VideoFrame (PyAV 17.1.0)</text>
+  <text x="660" y="531" fill="#D94841" font-size="8">Requires physical webcam</text>
+
+  <!-- WebRTC arrow from Live Camera tab -->
+  <line x1="541" y1="468" x2="645" y2="468" stroke="#D94841" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Deploy trigger arrow: GitHub (lane1) → Build (lane2)   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Vertical dashed arrow from GitHub label area at y~95 (lane1) to Build at y~246 (lane2) -->
+  <!-- Already drawn horizontally as part of lane 1 above — this note is redundant -->
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- LEGEND (bottom-right)                                   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Legend is placed inside lane 3, bottom-right corner, small -->
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ARROW MARKERS                                           -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1769AA"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#087E8B"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#218C70"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#D94841"/>
+    </marker>
+  </defs>
+
+  <!-- Lane labels (right-edge) -->
+  <text x="892" y="96" fill="#1769AA" font-size="9" text-anchor="end" font-style="italic">Source Control</text>
+  <text x="892" y="296" fill="#087E8B" font-size="9" text-anchor="end" font-style="italic">Cloud Runtime</text>
+  <text x="892" y="476" fill="#457B9D" font-size="9" text-anchor="end" font-style="italic">Client Layer</text>
+
+  <!-- Lane dividers -->
+  <line x1="18" y1="190" x2="900" y2="190" stroke="#AABCD0" stroke-width="1"/>
+  <line x1="18" y1="400" x2="900" y2="400" stroke="#AABCD0" stroke-width="1"/>
+
+  <!-- Vertical Deploy arrow: lane1→lane2 -->
+  <line x1="340" y1="170" x2="340" y2="204" stroke="#087E8B" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowTeal)"/>
+
+  <!-- Title bar at top -->
+  <rect x="0" y="0" width="900" height="16" fill="#0D2137"/>
+  <text x="450" y="12" fill="white" font-size="9" text-anchor="middle" font-weight="bold">Helmet Detection &amp; Road Safety Analyzer — Deployment Architecture</text>
+
+  <!-- Adjust all lane content down by 16 because of title bar -->
+  <!-- NOTE: All y coordinates already account for the title bar offset via lane positions -->
+
+  <!-- Legend box -->
+  <rect x="648" y="540" width="240" height="50" fill="white" stroke="#AABCD0" stroke-width="1" rx="4"/>
+  <text x="655" y="556" fill="#0D2137" font-size="8.5" font-weight="bold">Legend</text>
+  <rect x="655" y="560" width="14" height="9" fill="none" stroke="#0D2137" stroke-width="1" rx="2"/>
+  <text x="673" y="569" fill="#0D2137" font-size="8">Component</text>
+  <line x1="655" y1="578" x2="672" y2="578" stroke="#0D2137" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <text x="676" y="582" fill="#0D2137" font-size="8">Data flow</text>
+  <line x1="730" y1="565" x2="747" y2="565" stroke="#D94841" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="751" y="569" fill="#0D2137" font-size="8">Optional / conditional</text>
+
+</svg>

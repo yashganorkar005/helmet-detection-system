@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720" role="img" aria-labelledby="title desc">
+<title id="title">Helmet Detection System - deployment and runtime architecture</title>
+<desc id="desc">Developer commits code to GitHub, which is configured as the source for the intended Streamlit Community Cloud deployment. Visitors use a browser to interact with a Streamlit application. The app routes image, batch, video, camera and analytics work through YOLOv8 inference and returns annotated results and supported downloads. Runtime outputs and temporary files are distinguished from repository assets.</desc>
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#53708F"/></marker>
+  <marker id="arrowTeal" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#139C9A"/></marker>
+  <style>
+    .bg{fill:#F4F7FB}.title{font:700 32px 'DejaVu Sans',Arial,sans-serif;fill:#10233F}.subtitle{font:16px 'DejaVu Sans',Arial,sans-serif;fill:#617286}
+    .section{font:700 18px 'DejaVu Sans',Arial,sans-serif;fill:#10233F}.boxTitle{font:700 19px 'DejaVu Sans',Arial,sans-serif;fill:#10233F}.body{font:15px 'DejaVu Sans',Arial,sans-serif;fill:#31445A}.small{font:13px 'DejaVu Sans',Arial,sans-serif;fill:#617286}.whiteTitle{font:700 19px 'DejaVu Sans',Arial,sans-serif;fill:#FFFFFF}.arrowLabel{font:13px 'DejaVu Sans',Arial,sans-serif;fill:#53708F}
+    .node{fill:#FFFFFF;stroke:#D6E0EB;stroke-width:2}.blue{fill:#EAF1FC;stroke:#8DB0E8;stroke-width:2}.teal{fill:#DDF4F3;stroke:#76C9C4;stroke-width:2}.amber{fill:#FFF4D9;stroke:#E7C777;stroke-width:2}.dash{fill:none;stroke:#9BB0C6;stroke-width:2;stroke-dasharray:8 7}.arrow{fill:none;stroke:#53708F;stroke-width:3;marker-end:url(#arrow)}.arrowTeal{fill:none;stroke:#139C9A;stroke-width:3;marker-end:url(#arrowTeal)}
+  </style>
+</defs>
+<rect class="bg" width="1600" height="720" rx="24"/>
+<text x="52" y="48" class="title">Helmet Detection System</text>
+<text x="52" y="76" class="subtitle">Deployment architecture • source flow, runtime components, inference, and outputs</text>
+<rect x="1168" y="30" width="372" height="42" rx="21" fill="#FFF4D9" stroke="#E7C777"/>
+<text x="1354" y="56" text-anchor="middle" class="small" style="font-weight:700;fill:#795B17">HOSTED DEPLOYMENT NOT VERIFIED</text>
+
+<text x="52" y="111" class="section">1. Source and deployment path</text>
+<rect x="52" y="128" width="278" height="78" rx="15" class="node"/>
+<circle cx="83" cy="157" r="15" fill="#19385F"/><path d="M75 157 L82 164 L92 149" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/>
+<text x="108" y="156" class="boxTitle" style="font-size:16px">Developer workstation</text><text x="74" y="181" class="small">Edit · test · commit</text>
+<path d="M330 167 H390" class="arrow"/><text x="360" y="150" text-anchor="middle" class="arrowLabel">push</text>
+<rect x="394" y="128" width="278" height="78" rx="15" class="blue"/>
+<text x="416" y="156" class="boxTitle">GitHub repository</text><text x="416" y="181" class="small">Source · model · configuration</text>
+<path d="M672 167 H730" class="arrow"/><text x="701" y="150" text-anchor="middle" class="arrowLabel">connect</text>
+<rect x="734" y="128" width="340" height="78" rx="15" class="teal"/>
+<text x="758" y="156" class="boxTitle">Streamlit Community Cloud</text><text x="758" y="181" class="small">Build dependencies · start app.py</text>
+<path d="M904 206 V239" class="arrowTeal"/><text x="920" y="227" class="arrowLabel">runtime</text>
+<rect x="1110" y="128" width="430" height="78" rx="15" class="amber"/>
+<text x="1134" y="156" class="boxTitle">Deployment check</text><text x="1134" y="181" class="small">Review build logs, then smoke-test all modes and downloads</text>
+
+<rect x="52" y="240" width="1490" height="418" rx="23" class="dash"/>
+<rect x="78" y="223" width="400" height="34" rx="17" fill="#19385F"/>
+<text x="278" y="246" text-anchor="middle" class="whiteTitle" style="font-size:16px">2. Streamlit application runtime</text>
+<text x="1515" y="269" text-anchor="end" class="small">One Python app — no separate REST backend shown</text>
+
+<rect x="80" y="292" width="218" height="242" rx="16" class="amber"/>
+<text x="101" y="321" class="boxTitle">Browser interaction</text>
+<text x="101" y="354" class="body">• Upload images / video</text><text x="101" y="382" class="body">• Grant camera access</text><text x="101" y="410" class="body">• Choose mode</text><text x="101" y="438" class="body">• View / download results</text>
+<text x="101" y="490" class="small">Camera path uses WebRTC*</text>
+<path d="M298 414 H329" class="arrowTeal"/><text x="313" y="397" text-anchor="middle" class="arrowLabel">input</text>
+
+<rect x="334" y="278" width="250" height="270" rx="16" class="blue"/>
+<text x="354" y="309" class="boxTitle">Application / UI layer</text>
+<rect x="354" y="326" width="210" height="45" rx="9" fill="#FFFFFF" stroke="#B6C9E2"/>
+<text x="459" y="346" text-anchor="middle" class="body" style="font-weight:700">app.py</text><text x="459" y="362" text-anchor="middle" class="small">Streamlit entry point</text>
+<text x="354" y="398" class="body">• Image and batch pages</text><text x="354" y="424" class="body">• Video analysis</text><text x="354" y="450" class="body">• Live camera</text><text x="354" y="476" class="body">• Safety analytics</text><text x="354" y="502" class="body">• Layout, theme, annotations</text><text x="354" y="528" class="small">UI modules under ui/</text>
+<path d="M584 414 H614" class="arrow"/><text x="599" y="397" text-anchor="middle" class="arrowLabel">input</text>
+
+<rect x="619" y="278" width="340" height="270" rx="16" class="teal"/>
+<text x="641" y="309" class="boxTitle">Inference layer</text>
+<rect x="641" y="326" width="296" height="50" rx="9" fill="#FFFFFF" stroke="#A8DDD9"/>
+<text x="789" y="347" text-anchor="middle" class="body" style="font-weight:700">Ultralytics YOLOv8</text><text x="789" y="365" text-anchor="middle" class="small">weights: models/best.pt</text>
+<text x="641" y="403" class="body">1. Decode / prepare input</text><text x="641" y="429" class="body">2. Run model inference</text><text x="641" y="455" class="body">3. Apply thresholds / NMS</text><text x="641" y="481" class="body">4. Optional tracking if enabled</text><text x="641" y="507" class="body">5. Draw custom annotations</text>
+<path d="M959 414 H989" class="arrow"/><text x="974" y="397" text-anchor="middle" class="arrowLabel">result</text>
+
+<rect x="994" y="278" width="526" height="270" rx="16" class="node"/>
+<text x="1016" y="309" class="boxTitle">Results and runtime storage</text>
+<rect x="1016" y="326" width="220" height="78" rx="10" class="blue"/>
+<text x="1033" y="350" class="body" style="font-weight:700">Displayed results</text><text x="1033" y="374" class="small">Boxes · labels · counts · charts</text><text x="1033" y="393" class="small">Summaries / analytics</text>
+<rect x="1250" y="326" width="246" height="78" rx="10" class="teal"/>
+<text x="1267" y="350" class="body" style="font-weight:700">Downloads</text><text x="1267" y="374" class="small">Supported image / video / data / ZIP*</text><text x="1267" y="393" class="small">Formats depend on page</text>
+<rect x="1016" y="416" width="480" height="55" rx="10" class="amber"/>
+<text x="1033" y="438" class="body" style="font-weight:700">Runtime files</text><text x="1033" y="458" class="small">Temporary video files + session-specific violation snapshots*</text>
+<rect x="1016" y="483" width="480" height="48" rx="10" fill="#F4F7FB" stroke="#D6E0EB"/>
+<text x="1033" y="502" class="body" style="font-weight:700">Storage boundary</text><text x="1033" y="520" class="small">Local runtime files may be ephemeral; no database shown.</text>
+
+<rect x="80" y="570" width="1440" height="62" rx="12" fill="#FFFFFF" stroke="#D6E0EB"/>
+<text x="100" y="593" class="section" style="font-size:16px">Legend &amp; boundaries</text>
+<rect x="100" y="604" width="18" height="14" rx="3" fill="#EAF1FC" stroke="#8DB0E8"/><text x="127" y="616" class="small">Application / source</text>
+<rect x="300" y="604" width="18" height="14" rx="3" fill="#DDF4F3" stroke="#76C9C4"/><text x="327" y="616" class="small">Inference / media processing</text>
+<rect x="563" y="604" width="18" height="14" rx="3" fill="#FFF4D9" stroke="#E7C777"/><text x="590" y="616" class="small">User / runtime files</text>
+<line x1="792" y1="611" x2="830" y2="611" stroke="#53708F" stroke-width="3" marker-end="url(#arrow)"/><text x="842" y="616" class="small">Data / deployment flow</text>
+<text x="1090" y="594" class="small">*Based on supplied project inventory/audit.</text><text x="1090" y="616" class="small">Verify deployment and current code before relying on it.</text>
+<text x="52" y="692" class="small">Architecture basis: supplied project inventory and audit • deployment status and live behavior not independently verified.</text>
+</svg>
